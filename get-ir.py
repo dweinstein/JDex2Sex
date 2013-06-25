@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import os
 import shutil
 import subprocess
@@ -5,7 +6,7 @@ import sys
 
 APK_SRC= sys.argv[1] #"apks"
 APK_TOOL = "apktool/apktool"
-JDex2Sex_CP= os.path.join(os.getcwd(),'jdex2sex/bin')
+JDex2Sex_CP= os.path.join(os.getcwd(),'bin')
 
 
 JA_PATH = "/usr/bin/java"
@@ -15,7 +16,7 @@ SEXP_OUT = "dedexout"
 pd_dict = {}
 
 PY_PATH = "/usr/bin/python"
-RKT_PATH = "/Applications/Racket/bin/racket"
+RKT_PATH = "~/local/bin/racket"
 DOT_PATH  = "/usr/local/bin/dot"
 
 
@@ -120,14 +121,14 @@ def run():
             print DDX
 
             oldcwd = os.getcwd()
-            os.chdir(os.path.join(os.getcwd(), "jdex2sex"))
+            #os.chdir(os.path.join(os.getcwd(), "jdex2sex"))
 
             J_BIN = os.path.join(os.getcwd(),"bin")
             K_CP = os.path.join(J_BIN, "hu", "uw", "pallergabor", "dedexer", "hu.uw.pallergabor.dedexer.Dedexer")
 
-            if(subprocess.check_call(["make", "bin"])):
-                print "cant make bin"
-                return
+            #if(subprocess.check_call(["make", "bin"])):
+            #    print "cant make bin"
+            #    return
                 
 #            if(subprocess.check_call([DDX, "-d", sex_out, sdx])):
             if(subprocess.check_call([JA_PATH, "-cp", J_BIN,
